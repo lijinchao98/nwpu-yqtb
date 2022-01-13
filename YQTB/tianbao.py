@@ -30,6 +30,11 @@ def yqtb_nwpu():
     #进入提问填报界面
     time.sleep(1)
     
+    #2021年底西安疫情，每天核酸，填报系统多了一个选项，需要加上这个，点击“已检测”
+    a = driver.find_element_by_xpath("/html/body/div[@class='page']/form/div[@id='rbxx_div']/div[3]/label[2]/div[2]/input")
+    driver.execute_script("arguments[0].click();", a)
+    time.sleep(1)
+    
     driver.find_element_by_class_name('weui-btn_primary').click()#抓取提交按钮
     sub2=driver.find_element_by_id('brcn')
     driver.execute_script("arguments[0].click();", sub2)#这里要打勾，直接点击会报错，查了几篇文章，这个方法可以用
